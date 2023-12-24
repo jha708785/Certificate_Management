@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org"
+	th:replace="user/base::layout(~{::section})">
+<head>
+<meta charset="ISO-8859-1">
+<title>Home Page</title>
+</head>
+<body>
+	<section>
+
+		<div class="text-center">
+			<img alt="" src="../img/passport3.jpg" style="width: 100%; height: 85vh">
+		</div>
+
+
+		<div class="container p-2">
+			<p class="fs-3 text-center">Requirment</p>
+			<div class="row p-4">
+				<div class="col-md-6">
+					<img src="../img/adm3.jpg" width="100%" height="100%">
+				</div>
+
+				<div class="col-md-6 p-5">
+					<p class="fs-3 ">Mandatory Requirment</p>
+					<ul>
+						<li>Aadhar Card Number</li>
+						<li>Aadhar Card Photo</li>
+						<li>Passport Size Photo</li>
+					</ul>
+				</div>
+			</div>
+		</div>
+
+		<div class="bg-custom p-2">
+			<p class="text-center text-white">@copyright reserverd by
+				epassport.com</p>
+		</div>
+
+	</section>
+</body>
+</html>

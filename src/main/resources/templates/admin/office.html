@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org"
+	th:replace="admin/base::layout(~{::section})">
+<head>
+<meta charset="ISO-8859-1">
+<title>Insert title here</title>
+</head>
+<body>
+	<section>
+		<div class="container p-5">
+			<div class="row">
+				<div class="col-md-5 mt-1">
+					<div class="card paint-card">
+						<div class="text-center">
+
+							<p class="text-center text-custom fs-2">Add Office</p>
+							<div th:if="${session.succMsg}" class="text-center">
+								<p class="text-success fs-3" th:text="${session.succMsg}"></p>
+								<th:block th:text="${#session.removeAttribute('succMsg')}"></th:block>
+							</div>
+
+							<div th:if="${session.errorMsg}" class="text-center">
+								<p class="text-danger fs-3" th:text="${session.errorMsg}"></p>
+								<th:block th:text="${#session.removeAttribute('errorMsg')}"></th:block>
+							</div>
+							<hr>
+						</div>
+						<div class="card-body">
+							<div style="margin-left: 30px;">
+								<form action="addOffice" method="post">
+
+									<div class="mb-2">
+										<label>Office Name</label> <input type="text" required
+											name="officeName" class="form-control">
+									</div>
+
+									<div class="mb-2">
+										<label>Address</label>
+										<textarea required rows="3" cols="" class="form-control"
+											name="address"></textarea>
+									</div>
+
+									<div class="mb-2">
+										<label>Phone Number</label> <input required type="number"
+											name="phno" class="form-control">
+									</div>
+
+									<button class="btn bg-custom text-white col-md-12 mt-3">Add</button>
+
+								</form>
+							</div>
+						</div>
+					</div>
+				</div>
+
+				<div class="col-md-7  mt-1">
+					<div class="card paint-card">
+						<div class="text-center">
+
+							<p class="text-center text-custom fs-2">View Office</p>
+							<hr>
+						</div>
+						<div class="card-body">
+							<div style="margin-left: 30px;">
+								<table class="table">
+									<thead>
+										<tr>
+											<th scope="col">Sl No</th>
+											<th scope="col">Office Name</th>
+											<th scope="col">Address</th>
+											<th scope="col">Phone Number</th>
+											<th scope="col">Action</th>
+										</tr>
+									</thead>
+									<tbody>
+										<tr th:each="o,c:${list}">
+											<td>[[${c.count}]]</td>
+											<td>[[${o.officeName}]]</td>
+											<td>[[${o.address}]]</td>
+											<td>[[${o.phno}]]</td>
+											<td><a th:href="@{'/admin/editoffice/'+${o.id}}"
+												class="btn btn-sm btn-primary">Edit</a> 
+												<a
+												th:href="@{'/admin/deleteOffice/'+${o.id}}"
+												class="btn btn-sm btn-danger">Delete</a></td>
+										</tr>
+									</tbody>
+								</table>
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+	</section>
+</body>
+</html>

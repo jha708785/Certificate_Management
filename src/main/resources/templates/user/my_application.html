@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org"
+	th:replace="user/base::layout(~{::section})">
+<head>
+<meta charset="ISO-8859-1">
+<title>Insert title here</title>
+</head>
+<body>
+	<section>
+		<div class="caontainer p-4">
+			<div class="row">
+				<div class="col-md-10 offset-md-1">
+					<div class="card paint-card">
+						<div class="card-body">
+							<p class="text-center text-customer fs-1">My Application
+								Status</p>
+
+							<table class="table">
+								<thead>
+									<tr>
+										<th scope="col">Sl No</th>
+										<th scope="col">Full Name</th>
+
+										<th scope="col">Gender</th>
+										<th scope="col">Appointment Date</th>
+										<th scope="col">Office Address</th>
+										<th scope="col" class="text-center">Status</th>
+										<th scope="col">Action</th>
+									</tr>
+								</thead>
+								<tbody>
+									<tr th:each="a,c:${list}">
+										<td>[[${c.count}]]</td>
+										<td>[[${a.fullName}]]
+										<td>[[${a.gender}]]</td>
+										<td>[[${a.appointmentDate}]]</td>
+										<td>[[${a.officeAddress}]]</td>
+										<td>
+										<th:block>
+										<button th:if="${a.status=='Approved'}" class="btn btn-sm bg-success text-white col-md-12">Approved</button>
+										<button th:if="${a.status=='Reject'}" class="btn btn-sm bg-danger text-white col-md-12">Reject</button>
+										<button th:if="${a.status=='Review'}" class="btn btn-sm bg-warning text-white col-md-12">Review</button>
+									</th:block>
+										</td>
+										<td><a th:href="@{'/user/viewApplication/'+${a.id}}"
+											class="btn btn-sm btn-primary">view</a></td>
+									</tr>
+								</tbody>
+							</table>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+	</section>
+</body>
+</html>

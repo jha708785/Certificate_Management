@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org"
+	th:replace="user/base::layout(~{::section})">
+<head>
+<meta charset="ISO-8859-1">
+<title>Insert title here</title>
+</head>
+<body>
+	<section>
+		<div class="container-fluid bg-light p-2">
+			<div class="row">
+				<div class="col-md-6 offset-md-3">
+
+					<div class="card paint-card">
+						<div class="card-body">
+							<h3 class="text-center text-custom">Edit Profile</h3>
+
+							<div th:if="${session.succMsg}" class="text-center">
+								<p class="text-success fs-3" th:text="${session.succMsg}"></p>
+								<th:block th:text="${#session.removeAttribute('succMsg')}"></th:block>
+							</div>
+
+							<div th:if="${session.errorMsg}" class="text-center">
+								<p class="text-danger fs-3" th:text="${session.errorMsg}"></p>
+								<th:block th:text="${#session.removeAttribute('errorMsg')}"></th:block>
+							</div>
+
+							<form action="updateUser" class="mt-2" method="post"
+								id="userRegister" novalidate>
+
+								<div class="row">
+									<div class="col">
+										<label>First Name</label> <input type="text" name="firstName"
+											th:value="${user.firstName}" required
+											class="form-control form-control-sm">
+									</div>
+									<div class="col">
+										<label>Last Name</label> <input type="text" name="lastName"
+											th:value="${user.lastName}" required
+											class="form-control form-control-sm">
+									</div>
+								</div>
+								<div class="row mt-3">
+									<div class="col">
+										<label>Email Id</label> <input type="text" name="email"
+											th:value="${user.email}" readonly required
+											class="form-control form-control-sm">
+									</div>
+									<div class="col">
+										<label>Mobile No</label> <input type="text" name="mobNo"
+											th:value="${user.mobNo}" required
+											class="form-control form-control-sm">
+									</div>
+								</div>
+
+								<div class="form-group mt-3">
+									<label>Address</label>
+									<textarea required rows="3" cols="" class="form-control"
+										name="address">[[${user.address}]]</textarea>
+
+								</div>
+
+								<input type="hidden" name="id" th:value="${user.id}"> <input
+									type="hidden" name="role" th:value="${user.role}">
+
+								<div class="text-center mt-3">
+									<button class="btn bg-custom text-white col-md-4">Update</button>
+								</div>
+							</form>
+						</div>
+					</div>
+
+				</div>
+			</div>
+		</div>
+		<div class="bg-custom p-2" style="margin-top: 150px">
+			<p class="text-center text-white">@copyright reserverd by
+				epassport.com</p>
+		</div>
+	</section>
+</body>
+</html>

@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org"
+	th:replace="user/base::layout(~{::section})">
+<head>
+<meta charset="ISO-8859-1">
+<title>Insert title here</title>
+</head>
+<body>
+	<section>
+		<div class="container p-2">
+			<div class="row">
+
+				<div class="col-md-6 offset-md-3 mt-1">
+					<div class="card paint-card">
+						<div class="text-center">
+							<i class="fa-solid fa-note-sticky fa-2x"></i>
+							<p class="text-center text-custom fs-2">Appointment Date</p>
+							<hr>
+						</div>
+						<div class="card-body">
+
+
+							<div style="margin-left: 30px;">
+								<form>
+									<table class="table table-borderless">
+										<tr class="p-3">
+											<td class="fw-bold">Full Name :</td>
+											<td><input type="text" name="fullName"
+												class="form-control"></td>
+										</tr>
+
+										<tr>
+											<td class="fw-bold">Appointment Date :</td>
+											<td><input type="date" name="dob" class="form-control"
+												id="date_picker"></td>
+										</tr>
+
+									</table>
+									<button class="btn bg-custom text-white col-md-12">Apply</button>
+								</form>
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+
+		<script language="javascript">
+			var today = new Date();
+			var dd = String(today.getDate()).padStart(2, '0');
+			var mm = String(today.getMonth() + 1).padStart(2, '0');
+			var yyyy = today.getFullYear();
+
+			today = yyyy + '-' + mm + '-' + dd;
+			$('#date_picker').attr('min', today);
+		</script>
+
+	</section>
+</body>
+</html>

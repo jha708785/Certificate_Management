@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org"
+	th:replace="admin/base::layout(~{::section})">
+<head>
+<meta charset="ISO-8859-1">
+<title>Insert title here</title>
+</head>
+<body>
+	<section>
+		<div class="col-md-5 offset-md-3 mt-1">
+			<div class="card paint-card">
+				<div class="text-center">
+
+					<p class="text-center text-custom fs-2">Message</p>
+					<hr>
+				</div>
+				<div class="card-body">
+					<div style="margin-left: 30px;">
+						<form>
+							<div class="text-center">
+								<img alt="" src="../img/profile.jpg" width="100px"
+									height="100px">
+							</div>
+
+							<div class="mb-2">
+								<label>Full Name</label> <input type="text" name="fullName"
+									class="form-control">
+							</div>
+
+							<div class="mb-2">
+								<label>Messages</label>
+								<textarea rows="6" cols="" class="form-control"></textarea>
+							</div>
+							<button class="btn bg-custom text-white col-md-12 mt-3">Submit</button>
+
+						</form>
+					</div>
+				</div>
+			</div>
+		</div>
+	</section>
+</body>
+</html>

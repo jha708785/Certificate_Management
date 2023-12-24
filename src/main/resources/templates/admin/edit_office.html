@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org"
+	th:replace="admin/base::layout(~{::section})">
+<head>
+<meta charset="ISO-8859-1">
+<title>Insert title here</title>
+</head>
+<body>
+	<section>
+		<div class="col-md-5  offset-md-4 mt-1">
+			<div class="card paint-card">
+				<div class="text-center">
+
+					<p class="text-center text-custom fs-2">Edit Office</p>
+					<hr>
+				</div>
+				<div class="card-body">
+					<div style="margin-left: 30px;">
+						<form action="/admin/updateOffice" method="post">
+							<div th:if="${session.succMsg}" class="text-center">
+								<p class="text-success fs-3" th:text="${session.succMsg}"></p>
+								<th:block th:text="${#session.removeAttribute('succMsg')}"></th:block>
+							</div>
+
+							<div th:if="${session.errorMsg}" class="text-center">
+								<p class="text-danger fs-3" th:text="${session.errorMsg}"></p>
+								<th:block th:text="${#session.removeAttribute('errorMsg')}"></th:block>
+							</div>
+							<div class="mb-2">
+								<label>Office Name</label> <input type="text"
+									th:value="${of.officeName}" name="officeName"
+									class="form-control">
+							</div>
+
+							<div class="mb-2">
+								<label>Address</label>
+								<textarea rows="3" cols="" class="form-control" name="address">[[${of.address}]]</textarea>
+							</div>
+
+							<div class="mb-2">
+								<label>Phone Number</label> <input type="text" name="phno"
+									th:value="${of.phno}" class="form-control">
+							</div>
+							<input type="hidden" name="id" th:value="${of.id}">
+
+							<button class="btn bg-custom text-white col-md-12 mt-3">Update</button>
+
+						</form>
+					</div>
+				</div>
+			</div>
+		</div>
+
+
+	</section>
+</body>
+</html>

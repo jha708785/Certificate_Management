@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org"
+	th:replace="user/base::layout(~{::section})">
+<head>
+<meta charset="ISO-8859-1">
+<title>Insert title here</title>
+</head>
+<body>
+	<section>
+		<div class="container p-2">
+			<div class="row">
+
+				<div class="col-md-6 offset-md-3 mt-1">
+					<div class="card paint-card">
+						<div class="text-center p-2">
+
+
+							<i class="fa-solid fa-circle-user fa-2x"></i>
+							<p class="text-center text-custom fs-2">Profile</p>
+
+
+
+							<hr>
+						</div>
+						<div class="card-body">
+
+
+							<div style="margin-left: 30px;">
+								<form>
+									<table class="table table-borderless">
+										<tr class="p-3">
+											<td class="fw-bold">First Name :</td>
+											<td>[[${user.firstName}]]</td>
+										</tr>
+
+										<tr>
+											<td class="fw-bold">Last Name :</td>
+											<td>[[${user.lastName}]]</td>
+										</tr>
+
+										<tr>
+											<td class="fw-bold">Email :</td>
+											<td>[[${user.email}]]</td>
+										</tr>
+
+
+										<tr>
+											<td class="fw-bold">Mobile Number :</td>
+											<td>[[${user.mobNo}]]</td>
+										</tr>
+
+
+										<tr>
+											<td class="fw-bold">Address :</td>
+											<td>[[${user.address}]]</td>
+										</tr>
+									</table>
+
+								</form>
+							</div>
+
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+		<div class="bg-custom p-2" style="margin-top: 170px">
+			<p class="text-center text-white">@copyright reserverd by
+				epassport.com</p>
+		</div>
+	</section>
+</body>
+</html>

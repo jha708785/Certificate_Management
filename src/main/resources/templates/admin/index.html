@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org"
+	th:replace="admin/base::layout(~{::section})">
+<head>
+<meta charset="ISO-8859-1">
+<title>Home Page</title>
+</head>
+<body>
+	<section>
+		<div class="container p-2">
+			<p class="fs-1 text-center">Admin Dashboard</p>
+			<div class="row p-4">
+
+				<div class="col-md-4 ">
+					<a href="office" class="text-decoration-none">
+						<div class="card paint-card">
+							<div class="card-body text-center ">
+								<i class="fa-solid fa-building fa-3x"></i><br>
+								<p class="fs-3">Office Location</p>
+							</div>
+
+						</div>
+					</a>
+				</div>
+
+				<div class="col-md-4">
+					<a href="allUser" class="text-decoration-none">
+						<div class="card paint-card">
+							<div class="card-body text-center ">
+								<i class="fa-solid fa-circle-user fa-3x"></i><br>
+								<p class="fs-3">User</p>
+							</div>
+
+						</div>
+					</a>
+				</div>
+				<div class="col-md-4">
+					<a href="application" class="text-decoration-none">
+						<div class="card paint-card">
+							<div class="card-body text-center ">
+								<i class="fa-solid fa-rectangle-list fa-3x"></i><br>
+								<p class="fs-3">Application Form</p>
+							</div>
+						</div>
+					</a>
+				</div>
+			</div>
+		</div>
+
+		<div class="bg-custom p-2" style="margin-top: 290px">
+			<p class="text-center text-white">@copyright reserverd by
+				epassport.com</p>
+		</div>
+
+	</section>
+</body>
+</html>

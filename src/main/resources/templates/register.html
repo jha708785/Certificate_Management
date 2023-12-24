@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org"
+	th:replace="base::layout(~{::section})">
+<head>
+<meta charset="ISO-8859-1">
+<title>Insert title here</title>
+</head>
+<body>
+	<section>
+		<div class="container-fluid bg-light p-2">
+			<div class="row">
+				<div class="col-md-6 offset-md-3">
+
+					<div class="card paint-card">
+						<div class="card-body">
+							<h3 class="text-center text-custom">Signup</h3>
+
+							<div th:if="${session.succMsg}" class="text-center">
+								<p class="text-success fs-3" th:text="${session.succMsg}"></p>
+								<th:block th:text="${#session.removeAttribute('succMsg')}"></th:block>
+							</div>
+
+							<div th:if="${session.errorMsg}" class="text-center">
+								<p class="text-danger fs-3" th:text="${session.errorMsg}"></p>
+								<th:block th:text="${#session.removeAttribute('errorMsg')}"></th:block>
+							</div>
+
+							<form action="saveUser" class="mt-2" method="post"
+								id="userRegister" novalidate>
+
+								<div class="row">
+									<div class="col">
+										<label>First Name</label> <input type="text" name="firstName"
+											required class="form-control form-control-sm">
+									</div>
+									<div class="col">
+										<label>Last Name</label> <input type="text" name="lastName"
+											required class="form-control form-control-sm">
+									</div>
+								</div>
+								<div class="row mt-3">
+									<div class="col">
+										<label>Email Id</label> <input type="text" name="email"
+											required class="form-control form-control-sm">
+									</div>
+									<div class="col">
+										<label>Mobile No</label> <input type="text" name="mobNo"
+											required class="form-control form-control-sm">
+									</div>
+								</div>
+
+
+
+
+								<div class="row mt-3">
+									<div class="col">
+										<label>Password</label> <input type="text" name="password"
+											required id="psw" class="form-control form-control-sm">
+									</div>
+									<div class="col">
+										<label>Confirm Password</label> <input type="text"
+											name="confirmpassword" class="form-control form-control-sm">
+									</div>
+								</div>
+
+								<div class="form-group mt-3">
+									<label>Address</label>
+									<textarea required rows="3" cols="" class="form-control"
+										name="address"></textarea>
+
+								</div>
+
+								<div class="text-center mt-3">
+									<button class="btn bg-custom text-white col-md-4">Register</button>
+								</div>
+							</form>
+						</div>
+					</div>
+
+				</div>
+			</div>
+		</div>
+		<div class="bg-custom p-2" style="margin-top: 90px">
+			<p class="text-center text-white">@copyright reserverd by
+				epassport.com</p>
+		</div>
+	</section>
+</body>
+</html>
